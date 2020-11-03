@@ -22,6 +22,16 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+
+$routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
+	// Registration
+    $routes->get('register', 'RegistrationController::register', ['as' => 'register']);
+    $routes->post('register', 'RegistrationController::attemptRegister');
+
+   
+});
+
+
 /**
  * --------------------------------------------------------------------
  * Route Definitions
