@@ -26,7 +26,12 @@ $routes->setAutoRoute(true);
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 	// Registration
     $routes->get('register', 'RegistrationController::register', ['as' => 'register']);
-    $routes->post('register', 'RegistrationController::attemptRegister');
+	$routes->post('register', 'RegistrationController::attemptRegister');
+	
+    // Login/out
+    $routes->get('login', 'LoginController::login', ['as' => 'login']);
+    $routes->post('login', 'LoginController::attemptLogin');
+    $routes->get('logout', 'LoginController::logout');
 
    
 });
