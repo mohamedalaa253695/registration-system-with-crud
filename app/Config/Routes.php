@@ -23,6 +23,24 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 
+//users routes 
+$routes->get('users','UsersController::index');
+$routes->get('users/create','UsersController::create');
+$routes->post('users/create','UsersController::attemptCreate');
+
+$routes->get('users/update/(:num)','UsersController::update/$1');
+
+$routes->post('users/update', 'UsersController::updateUser');
+
+$routes->post('update-user-general-detials', 'UsersController::updateUser');
+$routes->post('update-user-email', 'UsersController::changeUserEmail');
+$routes->get('confirm-user-email', 'UsersController::confirmNewEmail');
+$routes->post('change-user-password', 'UsersController::changePassword');
+
+$routes->get('users/delete/(:num)','UsersController::delete/$1');
+
+
+
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
 	// Registration
     $routes->get('register', 'RegistrationController::register', ['as' => 'register']);
@@ -41,7 +59,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
     $routes->post('forgot-password', 'PasswordController::attemptForgotPassword');
     $routes->get('reset-password', 'PasswordController::resetPassword', ['as' => 'reset-password']);
 	$routes->post('reset-password', 'PasswordController::attemptResetPassword');
-	
+
 	 // Account settings
 	$routes->get('account', 'AccountController::account', ['as' => 'account']);
     $routes->post('account', 'AccountController::updateAccount');
