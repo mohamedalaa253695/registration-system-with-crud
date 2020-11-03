@@ -23,11 +23,11 @@
                                     <small id="emailHelp" class="form-text text-muted">After updating your email you will be logged out untill mail verification.</small>
                                 </div>
                                  <div class="form-group ">
-                                    <input type="number" class="form-control mb-4 input-rounded" id="phone"  name="phone" aria-describedby="name" placeholder="Update your phone number">
+                                    <input type="number" class="form-control mb-4 input-rounded" id="phone"  name="phone" aria-describedby="name"value="<?= $userData['phone_number'];?>" placeholder="Update your phone number">
                                     
                                 </div>
                                  <div class="form-group ">
-                                    <input type="text" class="form-control mb-4 input-rounded" id="name" aria-describedby="name" name="address" placeholder="Enter new address">
+                                    <input type="text" class="form-control mb-4 input-rounded" id="name" aria-describedby="name" name="address" value="<?= $userData['address'];?>" placeholder="Enter new address">
                                     
                                 </div>
 
