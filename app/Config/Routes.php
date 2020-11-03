@@ -39,6 +39,18 @@ $routes->post('change-user-password', 'UsersController::changePassword');
 
 $routes->get('users/delete/(:num)','UsersController::delete/$1');
 
+//roles routes
+$routes->get('roles','RolesController::index');
+
+$routes->get('roles/create','RolesController::create');
+$routes->post('roles/create','RolesController::attemptCreate');
+
+
+
+$routes->get('roles/update/(:num)','RolesController::update/$1');
+$routes->post('roles/update','RolesController::attemptUpdate');
+
+$routes->get('roles/delete/(:num)','RolesController::delete/$1');
 
 
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
