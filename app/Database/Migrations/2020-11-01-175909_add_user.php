@@ -15,6 +15,8 @@ class AddUser extends Migration
                     'password_hash'          => ['type' => 'varchar', 'constraint' => 191],
                     'phone_number'          => ['type' => 'INT'    , 'constraint' => 11  , 'null' => true],
                     'address'               => ['type' =>'VARCHAR' , 'constraint' => 191 , 'null' =>true],
+                    'reset_hash'            => ['type' => 'varchar', 'constraint' => 191, 'null' => true],
+        	        'reset_expires'        	=> ['type' => 'bigint', 'null' => true],
                     'activate_hash'         => ['type' => 'varchar', 'constraint' => 191 , 'null' => true],
                     'is_active'             => ['type' => 'tinyint', 'constraint' => 1   , 'null' => 0, 'default' => 0],
                     'created_at'            => ['type' => 'bigint' , 'null' => true],

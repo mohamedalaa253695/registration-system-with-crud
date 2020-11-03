@@ -25,10 +25,6 @@
                                     <input type="number" class="form-control mb-4 input-rounded" id="phone"  name="phone" aria-describedby="name" placeholder=" phone number">
                                     
                                 </div>
-                                 <div class="form-group ">
-                                    <input type="text" class="form-control mb-4 input-rounded" id="name" aria-describedby="name" name="address" placeholder="Enter new address">
-                                    
-                                </div>
                                
 
                                 <div class="form-group">
