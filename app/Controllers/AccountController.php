@@ -128,7 +128,7 @@ class AccountController extends Controller
 	/**
 	 * Verifies and sets new e-mail address.
 	 */
-	public function confirmNewEmail()
+	public function activateAccount()
 	{
 		$users = new UserModel();
 
@@ -146,6 +146,7 @@ class AccountController extends Controller
 		$updatedUser['email'] = $user['new_email'];
 		$updatedUser['new_email'] = null;
 		$updatedUser['activate_hash'] = null;
+		$updatedUser['active'] = 1;
 		$users->save($updatedUser);
 
 		// update session data, if user is logged in

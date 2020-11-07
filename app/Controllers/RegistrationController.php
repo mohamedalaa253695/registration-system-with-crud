@@ -103,7 +103,7 @@ class RegistrationController extends Controller
 		$updatedUser['id'] = $user['id'];
 		$updatedUser['is_active'] = 1;
 		$users->save($updatedUser);
-
+		
 		return redirect()->to('login')->with('success', lang('Auth.activationSuccess'));
 	}
 

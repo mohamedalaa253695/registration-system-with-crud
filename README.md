@@ -10,6 +10,11 @@
 
 ## Setup
 
+1- download the repo content git clone 
+''''
+https://github.com/mohamedalaa253695/registration-system-with-crud.git
+'''''
+
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
 

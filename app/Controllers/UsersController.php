@@ -99,6 +99,29 @@ class UsersController extends BaseController
         return redirect()->route('users')->with('success', 'user Created successfully');
 	}
 
+	public function activateUserAccount(){
+
+		$users = new UserModel();
+
+		// check token
+		$user = $users->where('activate_hash', $this->request->getGet('token'))
+			->where('active', 0)
+			->first();
+
+		if (is_null($user)) {
+			return redirect()->to('login')->with('error', lang('Auth.activationNoUser'));
+		}
+
+		// update user account to active
+		$updatedUser['id'] = $user['id'];
+		$updatedUser['active'] = 1;
+		$users->save($updatedUser);
+
+		return redirect()->to('login')->with('success', lang('Auth.activationSuccess'));
+		
+
+	}
+
 	public function update($id){
 		$users = new UserModel();
 		$user = $users->find($id);
@@ -206,6 +229,7 @@ class UsersController extends BaseController
 		$updatedUser['email'] = $user['new_email'];
 		$updatedUser['new_email'] = null;
 		$updatedUser['activate_hash'] = null;
+		$updatedUser['active'] = 1;
 		$users->save($updatedUser);
 
 		// update session data, if user is logged in
